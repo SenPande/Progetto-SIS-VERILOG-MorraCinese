@@ -1,0 +1,9 @@
+.model xnor
+.inputs A B
+.outputs O
+
+.names A B O
+00 1
+11 1
+
+.end

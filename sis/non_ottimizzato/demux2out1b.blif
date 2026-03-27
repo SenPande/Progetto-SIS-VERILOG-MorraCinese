@@ -1,0 +1,10 @@
+.model demux2out1b
+.inputs s i
+.outputs x y
+
+.names s i x
+11 1
+.names s i y
+01 1
+
+.end

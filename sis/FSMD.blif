@@ -1,0 +1,208 @@
+.model FSMD
+.inputs PRIMO1 PRIMO0 SECONDO1 SECONDO0 INIZIA
+.outputs MANCHE1 MANCHE0 PARTITA1 PARTITA0
+.latch    [19] LatchOut_v5   1
+.latch    [20] LatchOut_v6   0
+.latch    [21] LatchOut_v7   0
+.latch    max4 m4 re NIL 0
+.latch    max3 m3 re NIL 0
+.latch    max2 m2 re NIL 0
+.latch    max1 m1 re NIL 0
+.latch    max0 m0 re NIL 0
+.latch    nmc4 mc4 re NIL 0
+.latch    nmc3 mc3 re NIL 0
+.latch    nmc2 mc2 re NIL 0
+.latch    nmc1 mc1 re NIL 0
+.latch    nmc0 mc0 re NIL 0
+.latch    ilmanche1 olmanche1 re NIL 0
+.latch    ilmanche0 olmanche0 re NIL 0
+.latch    omove1 olmove1 re NIL 0
+.latch    omove0 olmove0 re NIL 0
+.names PRIMO1 PRIMO0 SECONDO1 SECONDO0 INIZIA FLAG RIS_MANCHE0 MANCHE1
+101-00- 1
+1-1100- 1
+-10100- 1
+-11-000 1
+.names FLAG RIS_MANCHE0 MANCHE0
+01 1
+.names MANCHE1 MANCHE0 PARTITA0 FLAG_MANCHE0 LatchOut_v5 LatchOut_v6 \
+LatchOut_v7 [19] [20] [21] [333] [338] [349] [361] PARTITA1
+1-1--0-------- 1
+-----0---0--1- 1
+-101----0----- 1
+-1-10---0----- 1
+-0-1--0---0--- 1
+-----0-1-0-0-- 1
+---00-1------1 1
+.names MANCHE1 MANCHE0 FLAG_MANCHE0 LatchOut_v6 LatchOut_v7 [20] [333] [337] \
+[338] [349] PARTITA0
+---1-----1 1
+1-1--1---- 1
+-1-1--11-- 1
+-11-0---1- 1
+.names sum3 sum2 sum1 m3 m2 m1 m0 [154] [328] FLAG_MANCHE0
+111111111 1
+011011111 1
+101101111 1
+001001111 1
+110110111 1
+010010111 1
+100100111 1
+000000111 1
+111111001 1
+011011001 1
+101101001 1
+001001001 1
+110110001 1
+010010001 1
+100100001 1
+000000001 1
+.names MANCHE0 PARTITA0 FLAG_MANCHE0 LatchOut_v5 LatchOut_v6 [20] [21] inc0 \
+[333] [337] [338] [349] [360] [19]
+----01------- 1
+---1---0----- 1
+1-------0---- 1
+-1-------1--- 1
+0---------0-- 1
+---------1-1- 1
+--1--0----0-- 1
+0---1-------0 1
+---0------1-0 1
+--11-00------ 1
+.names INIZIA MANCHE0 FLAG_MANCHE0 LatchOut_v5 LatchOut_v6 LatchOut_v7 [333] \
+[361] [20]
+-1--1--- 1
+0---1-1- 1
+--1-1-0- 1
+--00-1-1 1
+--01-0-1 1
+.names MANCHE0 LatchOut_v5 LatchOut_v6 LatchOut_v7 [337] [338] [349] [360] \
+[361] [21]
+----0-1-- 1
+---1---1- 1
+0-0-00--- 1
+-01-0---1 1
+.names INIZIA cmove1 olmanche1 olmove1 olmove0 [339] [347] [348] [355] FLAG
+11---0--- 1
+-1-110--- 1
+111----1- 1
+-1-1--00- 1
+-0-0--00- 1
+-0--10--0 1
+-101-10-- 1
+-000-10-- 1
+-1111--1- 1
+-01-1--10 1
+.names PRIMO1 PRIMO0 SECONDO1 SECONDO0 INIZIA [341] RIS_MANCHE0
+1-100- 1
+-1-101 1
+-0-100 1
+.names mc4 [351] sum4
+11 1
+00 1
+.names mc3 [352] sum3
+11 1
+00 1
+.names mc2 [353] sum2
+11 1
+00 1
+.names mc1 [354] sum1
+11 1
+00 1
+.names PRIMO1 PRIMO0 INIZIA m4 max4
+--01 1
+111- 1
+.names PRIMO1 PRIMO0 INIZIA m3 max3
+--01 1
+011- 1
+101- 1
+.names PRIMO0 INIZIA m2 max2
+01- 1
+-01 1
+.names SECONDO1 INIZIA m1 max1
+11- 1
+-01 1
+.names SECONDO0 INIZIA m0 max0
+11- 1
+-01 1
+.names inc0 mc0 [154]
+01 1
+10 1
+.names MANCHE1 MANCHE0 inc0
+1- 1
+-1 1
+.names INIZIA sum4 nmc4
+01 1
+.names INIZIA sum3 nmc3
+01 1
+.names INIZIA sum2 nmc2
+01 1
+.names INIZIA sum1 nmc1
+01 1
+.names INIZIA [154] nmc0
+01 1
+.names PRIMO1 SECONDO1 olmanche1 olmanche0 cmove1
+-11- 1
+1--1 1
+--11 1
+.names MANCHE1 olmanche1 [360] ilmanche1
+1-- 1
+-11 1
+.names MANCHE0 olmanche0 [360] ilmanche0
+1-- 1
+-11 1
+.names PRIMO1 MANCHE0 inc0 [341] [355] [361] omove1
+--0-1- 1
+1----1 1
+-011-- 1
+.names PRIMO0 SECONDO0 MANCHE0 inc0 [347] [361] omove0
+---01- 1
+1----1 1
+-101-- 1
+.names sum4 m4 [328]
+11 1
+00 1
+.names MANCHE1 LatchOut_v5 [333]
+0- 1
+-0 1
+.names sum4 sum3 sum2 [337]
+1-- 1
+-1- 1
+--1 1
+.names MANCHE1 LatchOut_v5 [338]
+0- 1
+-1 1
+.names PRIMO0 olmanche0 [339]
+0- 1
+-0 1
+.names PRIMO1 SECONDO1 [341]
+0- 1
+-1 1
+.names INIZIA olmove0 [347]
+1- 1
+-1 1
+.names SECONDO0 olmanche0 [348]
+1- 1
+-1 1
+.names MANCHE1 LatchOut_v7 [349]
+11 1
+.names sum3 mc3 [351]
+1- 1
+-0 1
+.names sum2 mc2 [352]
+1- 1
+-0 1
+.names sum1 mc1 [353]
+1- 1
+-0 1
+.names inc0 mc0 [354]
+0- 1
+-0 1
+.names INIZIA olmove1 [355]
+1- 1
+-1 1
+.names INIZIA inc0 [360]
+00 1
+.names MANCHE1 MANCHE0 [361]
+01 1
+.end

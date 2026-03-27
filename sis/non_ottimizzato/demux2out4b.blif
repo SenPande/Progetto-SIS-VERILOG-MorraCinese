@@ -1,0 +1,12 @@
+.model demux2out4b
+.inputs s i3 i2 i1 i0 
+.outputs x3 x2 x1 x0 y3 y2 y1 y0
+
+.subckt demux2out1b i=i3 s=s x=x3 y=y3
+.subckt demux2out1b i=i2 s=s x=x2 y=y2
+.subckt demux2out1b i=i1 s=s x=x1 y=y1
+.subckt demux2out1b i=i0 s=s x=x0 y=y0
+
+.search demux2out1b.blif
+
+.end

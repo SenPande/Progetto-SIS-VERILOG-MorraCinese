@@ -1,0 +1,13 @@
+.model comp2b
+.inputs a1 a0 b1 b0
+.outputs out
+
+.subckt xnor A=a1 B=b1 O=X1
+.subckt xnor A=a0 B=b0 O=X0
+
+.names X1 X0 out
+11 1
+
+.search xnor.blif
+
+.end

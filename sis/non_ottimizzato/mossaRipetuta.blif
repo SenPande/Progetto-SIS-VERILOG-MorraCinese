@@ -1,0 +1,24 @@
+.model mossaRipetuta
+.inputs INIZIA MANCHE1 MANCHE0 PRIMO1 PRIMO0 SECONDO1 SECONDO0 RIS_MANCHE1 RIS_MANCHE0 
+.outputs FLAG 
+
+.subckt zero O=0
+.subckt uno O=1
+
+.subckt mux4in2b X1=MANCHE1 X0=MANCHE0 a1=out1 a0=out0 b1=RIS_MANCHE1 b0=RIS_MANCHE0 c1=RIS_MANCHE1 c0=RIS_MANCHE0 d1=RIS_MANCHE1 d0=RIS_MANCHE0 o1=ilmanche1 o0=ilmanche0
+.subckt reg2b A1=ilmanche1 A0=ilmanche0 O1=olmanche1 O0=olmanche0
+.subckt mux2in2b X0=INIZIA A1=olmanche1 A0=olmanche0 B1=0 B0=0 O1=out1 O0=out0
+.subckt mux4in2b X1=MANCHE1 X0=MANCHE0 a1=O1 a0=O0 b1=PRIMO1 b0=PRIMO0 c1=SECONDO1 c0=SECONDO0 d1=0 d0=0 o1=omove1 o0=omove0
+.subckt reg2b A1=omove1 A0=omove0 O1=olmove1 O0=olmove0
+.subckt mux2in2b X0=INIZIA A1=olmove1 A0=olmove0 B1=1 B0=1 O1=O1 O0=O0
+.subckt mux4in2b X1=olmanche1 X0=olmanche0 a1=0 a0=0 b1=PRIMO1 b0=PRIMO0 c1=SECONDO1 c0=SECONDO0 d1=1 d0=1 o1=cmove1 o0=cmove0
+.subckt comp2b a1=O1 a0=O0 b1=cmove1 b0=cmove0 out=FLAG
+
+.search mux4in2b.blif
+.search reg2b.blif
+.search comp2b.blif
+.search uno.blif
+.search zero.blif
+.search mux2in2b.blif
+
+.end

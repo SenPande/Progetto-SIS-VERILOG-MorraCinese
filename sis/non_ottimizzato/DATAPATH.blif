@@ -1,0 +1,38 @@
+.model DATAPATH
+.inputs INIZIA PRIMO1 PRIMO0 SECONDO1 SECONDO0
+.outputs MANCHE1 MANCHE0 FLAG_MANCHE1 FLAG_MANCHE0
+
+# [13:9] bit registro max_manche
+# [8:4] bit contatore manche
+# [3:2] bit ultima manche
+# [1:0] bit ultima mossa vincente
+
+.subckt zero O=0
+.subckt uno O=1
+
+# logica combinatoria e partite massime
+.subckt demux2out4b s=INIZIA i3=PRIMO1 i2=PRIMO0 i1=SECONDO1 i0=SECONDO0 x3=i3 x2=i2 x1=i1 x0=i0 y3=i3 y2=i2 y1=i1 y0=i0
+.subckt mux2in5b X0=INIZIA A4=m4 A3=m3 A2=m2 A1=m1 A0=m0 B4=mx4 B3=mx3 B2=mx2 B1=mx1 B0=mx0 O4=max4 O3=max3 O2=max2 O1=max1 O0=max0
+.subckt sum5b A4=0 A3=0 A2=1 A1=0 A0=0 B4=0 B3=PRIMO1 B2=PRIMO0 B1=SECONDO1 B0=SECONDO0 CIN=CIN O4=mx4 O3=mx3 O2=mx2 O1=mx1 O0=mx0 COUT=COUT
+.subckt manche_combin a1=i3 a0=i2 b1=i1 b0=i0 o1=RIS_MANCHE1 o2=RIS_MANCHE0
+.subckt reg5b A4=max4 A3=max3 A2=max2 A1=max1 A0=max0 O4=m4 O3=m3 O2=m2 O1=m1 O0=m0
+
+# controllo mossa ripetuta
+.subckt mossaRipetuta INIZIA=INIZIA MANCHE1=MANCHE1 MANCHE0=MANCHE0 PRIMO1=PRIMO1 PRIMO0=PRIMO0 SECONDO1=SECONDO1 SECONDO0=SECONDO0 RIS_MANCHE1=RIS_MANCHE1 RIS_MANCHE0=RIS_MANCHE0 FLAG=FLAG
+.subckt mux2in2b X0=FLAG A1=RIS_MANCHE1 A0=RIS_MANCHE0 B1=0 B0=0 O1=MANCHE1 O0=MANCHE0 
+
+# controllo flag manche minime e massime
+.subckt count_manche INIZIA=INIZIA MANCHE1=MANCHE1 MANCHE0=MANCHE0 a=m4 b=m3 c=m2 d=m1 e=m0 FLAG_MANCHE1=FLAG_MANCHE1 FLAG_MANCHE0=FLAG_MANCHE0
+
+.search demux2out4b.blif
+.search manche_combin.blif
+.search sum5b.blif
+.search mux2in5b.blif
+.search reg5b.blif
+.search mossaRipetuta.blif
+.search mux2in2b.blif
+.search count_manche.blif
+.search uno.blif
+.search zero.blif
+
+.end
